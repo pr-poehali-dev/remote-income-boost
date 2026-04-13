@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import Icon from "@/components/ui/icon";
 import JoinModal from "@/components/JoinModal";
 
+const SEND_LEAD_URL = "https://functions.poehali.dev/952e4ca7-63bf-48e0-9b43-e1d229a9d47f";
+
 const REF_LINK = "https://svoy.alfabank.ru/ref/1247778";
 const VK_LINK = "https://vk.ru/tanya_ruz";
 const TG_LINK = "https://t.me/+79874160002";
@@ -66,6 +68,92 @@ const STEPS = [
     action: false,
   },
 ];
+
+const LeadForm = () => {
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus("loading");
+    try {
+      const res = await fetch(SEND_LEAD_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, phone }),
+      });
+      if (res.ok) {
+        setStatus("success");
+        setName("");
+        setPhone("");
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
+  };
+
+  return (
+    <section id="lead-form" className="py-20 bg-[#ef3124]">
+      <div className="max-w-xl mx-auto px-6 text-center">
+        <div className="inline-block text-white/70 text-xs font-medium uppercase tracking-widest mb-4 pb-1 border-b border-white/30">
+          Хочешь узнать больше?
+        </div>
+        <h2 className="font-cormorant text-4xl md:text-5xl font-bold text-white mb-4">
+          Оставь заявку — я свяжусь с тобой
+        </h2>
+        <p className="text-white/80 mb-10">
+          Расскажу всё подробно, отвечу на вопросы и пришлю презентацию. Без обязательств.
+        </p>
+        {status === "success" ? (
+          <div className="bg-white rounded-2xl px-8 py-10">
+            <div className="text-4xl mb-4">🎉</div>
+            <div className="font-cormorant text-2xl font-bold text-[#1a1a1a] mb-2">Заявка принята!</div>
+            <div className="text-[#1a1a1a]/60">Татьяна свяжется с тобой в ближайшее время.</div>
+          </div>
+        ) : (
+          <form onSubmit={handleSubmit} className="bg-white rounded-2xl px-8 py-8 text-left space-y-4">
+            <div>
+              <label className="block text-xs font-medium text-[#1a1a1a]/50 uppercase tracking-widest mb-2">Твоё имя</label>
+              <input
+                type="text"
+                required
+                value={name}
+                onChange={e => setName(e.target.value)}
+                placeholder="Например, Марина"
+                className="w-full border border-[#1a1a1a]/10 rounded-xl px-4 py-3 text-[#1a1a1a] placeholder:text-[#1a1a1a]/30 focus:outline-none focus:border-[#ef3124] transition-colors"
+              />
+            </div>
+            <div>
+              <label className="block text-xs font-medium text-[#1a1a1a]/50 uppercase tracking-widest mb-2">Телефон</label>
+              <input
+                type="tel"
+                required
+                value={phone}
+                onChange={e => setPhone(e.target.value)}
+                placeholder="+7 (___) ___-__-__"
+                className="w-full border border-[#1a1a1a]/10 rounded-xl px-4 py-3 text-[#1a1a1a] placeholder:text-[#1a1a1a]/30 focus:outline-none focus:border-[#ef3124] transition-colors"
+              />
+            </div>
+            {status === "error" && (
+              <div className="text-red-500 text-sm">Что-то пошло не так. Попробуй ещё раз.</div>
+            )}
+            <button
+              type="submit"
+              disabled={status === "loading"}
+              className="w-full bg-[#ef3124] text-white font-semibold py-4 rounded-xl hover:bg-[#d42a1e] transition-colors disabled:opacity-60"
+            >
+              {status === "loading" ? "Отправляем..." : "Отправить заявку"}
+            </button>
+            <p className="text-[#1a1a1a]/40 text-xs text-center">Нажимая кнопку, ты соглашаешься на обратный звонок</p>
+          </form>
+        )}
+      </div>
+    </section>
+  );
+};
 
 const Index = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -454,6 +542,9 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* ФОРМА ЗАЯВКИ */}
+      <LeadForm />
 
       {/* ЛИЧНОЕ ОБРАЩЕНИЕ */}
       <section className="py-20 bg-[#faf8f5]">
