@@ -411,6 +411,50 @@ const Index = () => {
         </div>
       </section>
 
+      {/* FAQ — ВОЗРАЖЕНИЯ */}
+      <section className="py-20 bg-[#faf8f5]">
+        <div className="max-w-3xl mx-auto px-6">
+          <div className="text-center mb-14">
+            <div className="inline-block text-[#ef3124] text-xs font-medium uppercase tracking-widest mb-4 pb-1 border-b border-[#ef3124]/30">
+              Честные ответы
+            </div>
+            <h2 className="font-cormorant text-4xl md:text-5xl font-bold text-[#1a1a1a]">
+              Сомневаешься? <span className="text-[#ef3124]">Понимаю</span>
+            </h2>
+          </div>
+          <div className="space-y-4">
+            {[
+              {
+                q: "Это пирамида!",
+                a: "Пирамида — это когда нужно вложить деньги. Здесь я не вложила ни копейки. С первого же месяца люди зарабатывают, ничем не рискуя. Плюс это не контора «рога и копыта» — это банк. В банках всегда было престижно работать, просто сейчас они вышли на новый уровень сотрудничества с людьми.",
+              },
+              {
+                q: "Я в это не верю",
+                a: "Я тебя понимаю — сама в начале отнеслась настороженно. Но не стала отрицать, а пошла и проверила. Доход официальный, можно совмещать с любой работой, вложений нет. Для меня даже 10 000 ₽ — это не ерунда, тем более не разово, а каждый месяц. Люди радуются детским пособиям, а тут зачем от такого отказываться?",
+              },
+              {
+                q: "У меня уже есть работа",
+                a: "Отлично — это и не работа в привычном смысле. Никаких планов, обязательств, графика. Работаешь когда хочешь, сколько хочешь — всё заработанное твоё. Многие совмещают с основной занятостью. Давай пришлю презентацию — там подробно объясняют, как банк пришёл к такой форме сотрудничества. Никто не уговаривает, просто интересно и познавательно.",
+              },
+            ].map((item, i) => (
+              <details key={i} className="group bg-white rounded-2xl shadow-sm overflow-hidden">
+                <summary className="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer list-none">
+                  <span className="font-cormorant text-xl font-bold text-[#1a1a1a] group-open:text-[#ef3124] transition-colors">
+                    {item.q}
+                  </span>
+                  <span className="w-7 h-7 rounded-full bg-[#ef3124]/10 text-[#ef3124] flex items-center justify-center flex-shrink-0 text-lg font-bold group-open:bg-[#ef3124] group-open:text-white transition-all">
+                    +
+                  </span>
+                </summary>
+                <div className="px-6 pb-6 text-[#1a1a1a]/70 leading-relaxed">
+                  {item.a}
+                </div>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ЛИЧНОЕ ОБРАЩЕНИЕ */}
       <section className="py-20 bg-[#faf8f5]">
         <div className="max-w-4xl mx-auto px-6 text-center">
