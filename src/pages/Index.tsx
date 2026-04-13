@@ -2,6 +2,9 @@ import { useState, useEffect } from "react";
 import Icon from "@/components/ui/icon";
 
 const REF_LINK = "https://svoy.alfabank.ru/ref/1247778";
+const VK_LINK = "https://vk.ru/tanya_ruz";
+const TG_LINK = "https://t.me/+79874160002";
+const PHONE = "8 (987) 416-00-02";
 
 const BENEFITS = [
   {
@@ -90,13 +93,21 @@ const Index = () => {
             </div>
             <span className="font-cormorant font-bold text-lg text-[#1a1a1a] tracking-wide">Татьяна Рузанова</span>
           </div>
-          <button
-            onClick={() => scrollTo("#steps")}
-            className="hidden md:flex items-center gap-2 bg-[#ef3124] hover:bg-[#cc2a1e] text-white text-sm font-medium px-5 py-2 rounded-full transition-all duration-200 hover:scale-105"
-          >
-            Вступить в команду
-            <Icon name="ArrowRight" size={14} />
-          </button>
+          <div className="hidden md:flex items-center gap-3">
+            <a href={TG_LINK} target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-[#229ED9]/10 hover:bg-[#229ED9]/20 flex items-center justify-center transition-colors">
+              <Icon name="Send" size={16} className="text-[#229ED9]" />
+            </a>
+            <a href={VK_LINK} target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-[#0077FF]/10 hover:bg-[#0077FF]/20 flex items-center justify-center transition-colors">
+              <Icon name="Users" size={16} className="text-[#0077FF]" />
+            </a>
+            <button
+              onClick={() => scrollTo("#steps")}
+              className="flex items-center gap-2 bg-[#ef3124] hover:bg-[#cc2a1e] text-white text-sm font-medium px-5 py-2 rounded-full transition-all duration-200 hover:scale-105"
+            >
+              Вступить в команду
+              <Icon name="ArrowRight" size={14} />
+            </button>
+          </div>
         </div>
       </nav>
 
@@ -320,6 +331,49 @@ const Index = () => {
         </div>
       </section>
 
+      {/* КОНТАКТЫ */}
+      <section id="contacts" className="py-20 bg-white">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <div className="inline-block text-[#ef3124] text-xs font-medium uppercase tracking-widest mb-4 pb-1 border-b border-[#ef3124]/30">
+            Связаться со мной
+          </div>
+          <h2 className="font-cormorant text-4xl md:text-5xl font-bold mb-4">
+            Есть вопросы? <span className="text-[#ef3124]">Напишите мне</span>
+          </h2>
+          <p className="text-[#1a1a1a]/55 mb-10 text-base max-w-md mx-auto leading-relaxed">
+            Расскажу подробнее о программе, отвечу на любые вопросы и помогу сделать первый шаг
+          </p>
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a
+              href={TG_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 bg-[#229ED9] hover:bg-[#1a87bb] text-white font-semibold px-7 py-4 rounded-2xl transition-all duration-200 hover:scale-105 hover:shadow-[0_8px_24px_rgba(34,158,217,0.35)] w-full sm:w-auto justify-center"
+            >
+              <Icon name="Send" size={20} />
+              Написать в Telegram
+            </a>
+            <a
+              href={VK_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 bg-[#0077FF] hover:bg-[#005ecc] text-white font-semibold px-7 py-4 rounded-2xl transition-all duration-200 hover:scale-105 hover:shadow-[0_8px_24px_rgba(0,119,255,0.35)] w-full sm:w-auto justify-center"
+            >
+              <Icon name="Users" size={20} />
+              ВКонтакте
+            </a>
+            <a
+              href={`tel:+7${PHONE.replace(/\D/g, "").slice(1)}`}
+              className="flex items-center gap-3 bg-[#faf8f5] hover:bg-gray-100 border border-black/10 text-[#1a1a1a] font-semibold px-7 py-4 rounded-2xl transition-all duration-200 hover:scale-105 w-full sm:w-auto justify-center"
+            >
+              <Icon name="Phone" size={20} className="text-[#ef3124]" />
+              {PHONE}
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* FOOTER */}
       <footer className="border-t border-black/8 py-8 bg-white">
         <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
@@ -329,15 +383,17 @@ const Index = () => {
             </div>
             <span className="font-cormorant font-bold text-base">Татьяна Рузанова · Свой в Альфе</span>
           </div>
-          <a
-            href={REF_LINK}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 text-[#ef3124] hover:text-[#cc2a1e] text-sm font-medium transition-colors"
-          >
-            Вступить в команду
-            <Icon name="ArrowRight" size={14} />
-          </a>
+          <div className="flex items-center gap-3">
+            <a href={TG_LINK} target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-[#229ED9]/10 hover:bg-[#229ED9] hover:text-white flex items-center justify-center transition-all text-[#229ED9]">
+              <Icon name="Send" size={16} />
+            </a>
+            <a href={VK_LINK} target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-[#0077FF]/10 hover:bg-[#0077FF] hover:text-white flex items-center justify-center transition-all text-[#0077FF]">
+              <Icon name="Users" size={16} />
+            </a>
+            <a href={`tel:+79874160002`} className="w-9 h-9 rounded-full bg-[#ef3124]/10 hover:bg-[#ef3124] hover:text-white flex items-center justify-center transition-all text-[#ef3124]">
+              <Icon name="Phone" size={16} />
+            </a>
+          </div>
           <p className="text-[#1a1a1a]/30 text-xs">
             © 2024 · Партнёрская программа Альфа-Банка
           </p>
