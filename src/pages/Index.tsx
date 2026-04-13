@@ -112,71 +112,90 @@ const Index = () => {
       </nav>
 
       {/* HERO */}
-      <section className="relative min-h-screen flex items-center overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(https://cdn.poehali.dev/projects/55d14b67-1c06-42c5-a8ed-9cfc421b0283/files/67fc9cca-fff0-450e-9203-5448d6b79515.jpg)` }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#faf8f5] via-[#faf8f5]/95 to-[#faf8f5]/30" />
+      <section className="relative min-h-screen flex items-center overflow-hidden bg-[#faf8f5]">
         <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full bg-[#ef3124]/5 blur-3xl pointer-events-none" />
         <div className="absolute bottom-0 left-1/3 w-[400px] h-[400px] rounded-full bg-amber-200/30 blur-3xl pointer-events-none" />
 
-        <div className="relative max-w-6xl mx-auto px-6 pt-20 pb-16">
-          <div className="max-w-2xl">
-            <div
-              className={`transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
-              style={{ transitionDelay: "0.1s" }}
-            >
-              <div className="inline-flex items-center gap-2 bg-[#ef3124]/10 text-[#ef3124] text-xs font-medium px-4 py-1.5 rounded-full mb-8 tracking-wide uppercase">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#ef3124] animate-pulse" />
-                Партнёрская программа Альфа-Банка
+        <div className="relative max-w-6xl mx-auto px-6 pt-24 pb-16 w-full">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+
+            {/* TEXT */}
+            <div>
+              <div
+                className={`transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
+                style={{ transitionDelay: "0.1s" }}
+              >
+                <div className="inline-flex items-center gap-2 bg-[#ef3124]/10 text-[#ef3124] text-xs font-medium px-4 py-1.5 rounded-full mb-8 tracking-wide uppercase">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#ef3124] animate-pulse" />
+                  Партнёрская программа Альфа-Банка
+                </div>
+              </div>
+
+              <div
+                className={`transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
+                style={{ transitionDelay: "0.25s" }}
+              >
+                <h1 className="font-cormorant text-5xl md:text-7xl font-bold leading-[1.05] mb-4 tracking-tight">
+                  Привет,<br />
+                  я <span className="text-[#ef3124]">Татьяна</span>
+                </h1>
+              </div>
+
+              <div
+                className={`transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
+                style={{ transitionDelay: "0.4s" }}
+              >
+                <p className="text-[#1a1a1a]/60 text-lg md:text-xl mb-3 leading-relaxed font-light">
+                  Ваш гид к финансовой уверенности.
+                </p>
+                <p className="text-[#1a1a1a]/70 text-base md:text-lg mb-10 leading-relaxed max-w-xl">
+                  Помогаю людям разобраться в финансах и приглашаю в команду{" "}
+                  <strong className="font-semibold text-[#1a1a1a]">«Свой в Альфе»</strong> —
+                  партнёрскую программу, где можно помогать другим и зарабатывать на рекомендациях.
+                </p>
+              </div>
+
+              <div
+                className={`flex flex-col sm:flex-row gap-4 transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
+                style={{ transitionDelay: "0.55s" }}
+              >
+                <a
+                  href={REF_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 bg-[#ef3124] hover:bg-[#cc2a1e] text-white font-semibold text-base px-8 py-4 rounded-2xl transition-all duration-200 hover:scale-105 hover:shadow-[0_8px_30px_rgba(239,49,36,0.35)]"
+                >
+                  Вступить в мою команду
+                  <Icon name="ArrowRight" size={18} />
+                </a>
+                <button
+                  onClick={() => scrollTo("#about")}
+                  className="inline-flex items-center justify-center gap-2 bg-white border border-black/10 hover:border-black/20 text-[#1a1a1a] font-medium text-base px-8 py-4 rounded-2xl transition-all duration-200 hover:shadow-md"
+                >
+                  Узнать подробнее
+                </button>
               </div>
             </div>
 
+            {/* PHOTO */}
             <div
-              className={`transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
-              style={{ transitionDelay: "0.25s" }}
+              className={`flex justify-center md:justify-end transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
+              style={{ transitionDelay: "0.3s" }}
             >
-              <h1 className="font-cormorant text-5xl md:text-7xl font-bold leading-[1.05] mb-4 tracking-tight">
-                Привет,<br />
-                я <span className="text-[#ef3124]">Татьяна</span>
-              </h1>
+              <div className="relative">
+                <div className="absolute -inset-4 rounded-3xl bg-gradient-to-br from-[#ef3124]/10 to-amber-200/30 blur-xl" />
+                <img
+                  src="https://cdn.poehali.dev/projects/55d14b67-1c06-42c5-a8ed-9cfc421b0283/bucket/e8931099-4b4e-49e0-b378-49fa85896f4c.jpg"
+                  alt="Татьяна Рузанова"
+                  className="relative rounded-3xl object-cover object-top w-[340px] md:w-[420px] h-[480px] md:h-[580px] shadow-2xl"
+                />
+                <div className="absolute bottom-6 left-1/2 -translate-x-1/2 bg-white/90 backdrop-blur-sm rounded-2xl px-5 py-3 shadow-lg flex items-center gap-3 whitespace-nowrap">
+                  <span className="w-2.5 h-2.5 rounded-full bg-green-400 animate-pulse" />
+                  <span className="text-sm font-medium text-[#1a1a1a]">Открыта для новых партнёров</span>
+                </div>
+              </div>
             </div>
 
-            <div
-              className={`transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
-              style={{ transitionDelay: "0.4s" }}
-            >
-              <p className="text-[#1a1a1a]/60 text-lg md:text-xl mb-3 leading-relaxed font-light">
-                Ваш гид к финансовой уверенности.
-              </p>
-              <p className="text-[#1a1a1a]/70 text-base md:text-lg mb-10 leading-relaxed max-w-xl">
-                Помогаю людям разобраться в финансах и приглашаю в команду{" "}
-                <strong className="font-semibold text-[#1a1a1a]">«Свой в Альфе»</strong> —
-                партнёрскую программу, где можно помогать другим и зарабатывать на рекомендациях.
-              </p>
-            </div>
-
-            <div
-              className={`flex flex-col sm:flex-row gap-4 transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
-              style={{ transitionDelay: "0.55s" }}
-            >
-              <a
-                href={REF_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 bg-[#ef3124] hover:bg-[#cc2a1e] text-white font-semibold text-base px-8 py-4 rounded-2xl transition-all duration-200 hover:scale-105 hover:shadow-[0_8px_30px_rgba(239,49,36,0.35)]"
-              >
-                Вступить в мою команду
-                <Icon name="ArrowRight" size={18} />
-              </a>
-              <button
-                onClick={() => scrollTo("#about")}
-                className="inline-flex items-center justify-center gap-2 bg-white border border-black/10 hover:border-black/20 text-[#1a1a1a] font-medium text-base px-8 py-4 rounded-2xl transition-all duration-200 hover:shadow-md"
-              >
-                Узнать подробнее
-              </button>
-            </div>
           </div>
         </div>
 
