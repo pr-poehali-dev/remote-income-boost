@@ -332,6 +332,85 @@ const Index = () => {
         </div>
       </section>
 
+      {/* ОТЗЫВЫ ПАРТНЁРОВ */}
+      <section className="py-20 bg-white">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center mb-14">
+            <div className="inline-block text-[#ef3124] text-xs font-medium uppercase tracking-widest mb-4 pb-1 border-b border-[#ef3124]/30">
+              Истории успеха
+            </div>
+            <h2 className="font-cormorant text-4xl md:text-5xl font-bold text-[#1a1a1a]">
+              Реальные результаты <span className="text-[#ef3124]">наших партнёров</span>
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              {
+                name: "Четверикова Наталья",
+                city: "г. Пермь",
+                role: "Собственник ЗООбизнеса, мама двух подростков",
+                level: "Агент А2",
+                income: "8 874 ₽",
+                period: "за февраль",
+                bonus: "5 000 ₽ бонус за 1 шаг",
+                image: "https://cdn.poehali.dev/projects/55d14b67-1c06-42c5-a8ed-9cfc421b0283/bucket/aa956558-cfba-4c35-8e6d-563e4ed7705d.jpg",
+              },
+              {
+                name: "Синиченкова Дарья",
+                city: "г. Санкт-Петербург",
+                role: "Мамочка в декрете, первый месяц работы",
+                level: "Агент А1",
+                income: "5 400 ₽",
+                period: "за февраль",
+                bonus: "5 000 ₽ бонус за 1 шаг",
+                image: "https://cdn.poehali.dev/projects/55d14b67-1c06-42c5-a8ed-9cfc421b0283/bucket/6e3bb559-41dc-40c6-a555-ebc4bde62bc7.jpg",
+              },
+              {
+                name: "Керженцева Анна",
+                city: "г. Пермь",
+                role: "Организатор бьюти конференций, бьюти мастер",
+                level: "Агент А1",
+                income: "3 400 ₽",
+                period: "за февраль",
+                bonus: "5 000 ₽ бонус за 1 шаг",
+                image: "https://cdn.poehali.dev/projects/55d14b67-1c06-42c5-a8ed-9cfc421b0283/bucket/883c5599-609e-4db2-bc62-16981852c5b3.jpg",
+              },
+            ].map((person, i) => (
+              <div key={i} className="bg-[#faf8f5] rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                <div className="relative h-64 overflow-hidden">
+                  <img
+                    src={person.image}
+                    alt={person.name}
+                    className="w-full h-full object-cover object-top"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                  <div className="absolute bottom-4 left-4 text-white">
+                    <div className="font-cormorant text-xl font-bold">{person.name}</div>
+                    <div className="text-white/80 text-sm">{person.city}</div>
+                  </div>
+                  <div className="absolute top-4 right-4 bg-[#ef3124] text-white text-xs font-bold px-3 py-1 rounded-full">
+                    {person.level}
+                  </div>
+                </div>
+                <div className="p-5">
+                  <p className="text-[#1a1a1a]/60 text-sm mb-4">{person.role}</p>
+                  <div className="flex items-center justify-between mb-3">
+                    <div>
+                      <div className="text-[#1a1a1a]/50 text-xs">{person.period}</div>
+                      <div className="font-cormorant text-2xl font-bold text-[#1a1a1a]">{person.income}</div>
+                    </div>
+                    <div className="text-right">
+                      <div className="text-[#1a1a1a]/50 text-xs">бонус</div>
+                      <div className="font-bold text-[#ef3124] text-sm">{person.bonus}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ЛИЧНОЕ ОБРАЩЕНИЕ */}
       <section className="py-20 bg-[#faf8f5]">
         <div className="max-w-4xl mx-auto px-6 text-center">
