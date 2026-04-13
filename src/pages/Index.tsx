@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Icon from "@/components/ui/icon";
+import JoinModal from "@/components/JoinModal";
 
 const REF_LINK = "https://svoy.alfabank.ru/ref/1247778";
 const VK_LINK = "https://vk.ru/tanya_ruz";
@@ -69,6 +70,7 @@ const STEPS = [
 const Index = () => {
   const [scrolled, setScrolled] = useState(false);
   const [visible, setVisible] = useState(false);
+  const [joinModal, setJoinModal] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -82,6 +84,7 @@ const Index = () => {
   };
 
   return (
+    <>
     <div className="min-h-screen bg-[#faf8f5] font-ibm text-[#1a1a1a] overflow-x-hidden">
 
       {/* NAV */}
@@ -159,15 +162,13 @@ const Index = () => {
                 className={`flex flex-col sm:flex-row gap-4 transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
                 style={{ transitionDelay: "0.55s" }}
               >
-                <a
-                  href={REF_LINK}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <button
+                  onClick={() => setJoinModal(true)}
                   className="inline-flex items-center justify-center gap-2 bg-[#ef3124] hover:bg-[#cc2a1e] text-white font-semibold text-base px-8 py-4 rounded-2xl transition-all duration-200 hover:scale-105 hover:shadow-[0_8px_30px_rgba(239,49,36,0.35)]"
                 >
                   Вступить в мою команду
                   <Icon name="ArrowRight" size={18} />
-                </a>
+                </button>
                 <button
                   onClick={() => scrollTo("#about")}
                   className="inline-flex items-center justify-center gap-2 bg-white border border-black/10 hover:border-black/20 text-[#1a1a1a] font-medium text-base px-8 py-4 rounded-2xl transition-all duration-200 hover:shadow-md"
@@ -419,6 +420,16 @@ const Index = () => {
         </div>
       </footer>
     </div>
+
+    <JoinModal
+      open={joinModal}
+      onClose={() => setJoinModal(false)}
+      refLink={REF_LINK}
+      tgLink={TG_LINK}
+      vkLink={VK_LINK}
+      phone={PHONE}
+    />
+    </>
   );
 };
 
