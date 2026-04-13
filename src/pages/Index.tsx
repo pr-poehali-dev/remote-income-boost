@@ -104,7 +104,7 @@ const Index = () => {
               <Icon name="Users" size={16} className="text-[#0077FF]" />
             </a>
             <button
-              onClick={() => scrollTo("#steps")}
+              onClick={() => setJoinModal(true)}
               className="flex items-center gap-2 bg-[#ef3124] hover:bg-[#cc2a1e] text-white text-sm font-medium px-5 py-2 rounded-full transition-all duration-200 hover:scale-105"
             >
               Вступить в команду
@@ -317,15 +317,13 @@ const Index = () => {
               <p className="text-white/60 text-sm mb-5 leading-relaxed">
                 Зарегистрируйтесь по моей ссылке — и я лично помогу вам сделать первые шаги в программе «Свой в Альфе»
               </p>
-              <a
-                href={REF_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
+                onClick={() => setJoinModal(true)}
                 className="inline-flex items-center gap-2 bg-[#ef3124] hover:bg-[#cc2a1e] text-white font-semibold text-base px-8 py-4 rounded-xl transition-all duration-200 hover:scale-105 hover:shadow-[0_8px_30px_rgba(239,49,36,0.4)]"
               >
                 Зарегистрироваться по моей ссылке
                 <Icon name="ExternalLink" size={16} />
-              </a>
+              </button>
               <p className="text-white/25 text-xs mt-4">
                 Бесплатно · Без обязательств · Поддержка куратора
               </p>
