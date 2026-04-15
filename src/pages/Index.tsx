@@ -8,8 +8,7 @@ const REF_LINK = "https://svoy.alfabank.ru/ref/1247778";
 const VK_LINK = "https://vk.ru/tanya_ruz";
 const TG_LINK = "https://t.me/+79874160002";
 const PHONE = "8 (987) 416-00-02";
-const WA_MAX_LINK = "https://wa.me/79874160002";
-const WA_MAX_PHONE = "8 (987) 416-00-02";
+const WA_LINK = "https://wa.me/79874160002";
 
 const BENEFITS = [
   {
@@ -578,7 +577,7 @@ const Index = () => {
             Расскажу подробнее о программе, отвечу на любые вопросы и помогу сделать первый шаг
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 flex-wrap">
             <a
               href={TG_LINK}
               target="_blank"
@@ -587,6 +586,15 @@ const Index = () => {
             >
               <Icon name="Send" size={20} />
               Написать в Telegram
+            </a>
+            <a
+              href={WA_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 bg-[#25D366] hover:bg-[#1db954] text-white font-semibold px-7 py-4 rounded-2xl transition-all duration-200 hover:scale-105 hover:shadow-[0_8px_24px_rgba(37,211,102,0.35)] w-full sm:w-auto justify-center"
+            >
+              <Icon name="MessageCircle" size={20} />
+              WhatsApp
             </a>
             <a
               href={VK_LINK}
@@ -620,6 +628,9 @@ const Index = () => {
           <div className="flex items-center gap-3">
             <a href={TG_LINK} target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-[#229ED9]/10 hover:bg-[#229ED9] hover:text-white flex items-center justify-center transition-all text-[#229ED9]">
               <Icon name="Send" size={16} />
+            </a>
+            <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-[#25D366]/10 hover:bg-[#25D366] hover:text-white flex items-center justify-center transition-all text-[#25D366]">
+              <Icon name="MessageCircle" size={16} />
             </a>
             <a href={VK_LINK} target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-[#0077FF]/10 hover:bg-[#0077FF] hover:text-white flex items-center justify-center transition-all text-[#0077FF]">
               <Icon name="Users" size={16} />
