@@ -8,6 +8,8 @@ const REF_LINK = "https://svoy.alfabank.ru/ref/1247778";
 const VK_LINK = "https://vk.ru/tanya_ruz";
 const TG_LINK = "https://t.me/+79874160002";
 const PHONE = "8 (987) 416-00-02";
+const WA_MAX_LINK = "https://wa.me/79874160002";
+const WA_MAX_PHONE = "8 (987) 416-00-02";
 
 const BENEFITS = [
   {
